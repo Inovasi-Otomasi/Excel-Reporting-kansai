@@ -8,8 +8,6 @@ class xcel {
     }
     
     public function power_meter($item = "", $from, $to){
-        // echo $item;
-
         $item = $this->models->get_item($item)[0]->id;
         $sql = "SELECT * FROM power WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 6000";
         $data = $this->models->get_data($sql);
