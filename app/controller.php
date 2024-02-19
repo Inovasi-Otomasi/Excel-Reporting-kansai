@@ -11,7 +11,7 @@ class xcel {
         $item = $this->models->get_item($item)[0]->id;
         $sql = "SELECT * FROM power WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 6000";
         $data = $this->models->get_data($sql);
-        $spreadsheet = $this->models->reader("./report/pm.xlsx");
+        $spreadsheet = $this->models->reader("./Report/pm.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('PLN');
 
         $i = 3;
@@ -71,7 +71,7 @@ class xcel {
         $item = $this->models->get_item($item)[0]->id;
         $sql = "SELECT * FROM flow WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 2000";
         $data = $this->models->get_data($sql);
-        $spreadsheet = $this->models->reader("./report/flow.xlsx");
+        $spreadsheet = $this->models->reader("./Report/flow.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('RawData');
 
         $i = 3;
@@ -96,7 +96,7 @@ class xcel {
         $sql = "SELECT * FROM temperature WHERE ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 2000";
         $data = $this->models->get_data($sql);
         $items = $this->models->get_item('-a', 'temperature');
-        $spreadsheet = $this->models->reader("./report/temp.xlsx");
+        $spreadsheet = $this->models->reader("./Report/temp.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('RawData');
         $i = 3;
 
@@ -132,7 +132,7 @@ class xcel {
         $sql = "SELECT * FROM status WHERE ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 2000";
         $data = $this->models->get_data($sql);
         $items = $this->models->get_item('-a', 'digital');
-        $spreadsheet = $this->models->reader("./report/drycon.xlsx");
+        $spreadsheet = $this->models->reader("./Report/drycon.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('RawData');
         $i = 3;
 
