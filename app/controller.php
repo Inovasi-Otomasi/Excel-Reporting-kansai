@@ -9,7 +9,7 @@ class xcel {
     
     public function power_meter($item = "", $from, $to){
         $item = $this->models->get_item($item)[0]->id;
-        $sql = "SELECT * FROM power WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 6000";
+        $sql = "SELECT * FROM power WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 10000";
         $data = $this->models->get_data($sql);
         $spreadsheet = $this->models->reader("./Report/pm.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('PLN');
@@ -69,7 +69,7 @@ class xcel {
 
     public function flow_meter($item = "", $from, $to){
         $item = $this->models->get_item($item)[0]->id;
-        $sql = "SELECT * FROM flow WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 2000";
+        $sql = "SELECT * FROM flow WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 10000";
         $data = $this->models->get_data($sql);
         $spreadsheet = $this->models->reader("./Report/flow.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('RawData');
@@ -93,7 +93,7 @@ class xcel {
     }
 
     public function temperature($from, $to){
-        $sql = "SELECT * FROM temperature WHERE ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 2000";
+        $sql = "SELECT * FROM temperature WHERE ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 10000";
         $data = $this->models->get_data($sql);
         $items = $this->models->get_item('-a', 'temperature');
         $spreadsheet = $this->models->reader("./Report/temp.xlsx");
@@ -129,7 +129,7 @@ class xcel {
     }
 
     public function dry_contact($from, $to){
-        $sql = "SELECT * FROM status WHERE ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 2000";
+        $sql = "SELECT * FROM status WHERE ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 10000";
         $data = $this->models->get_data($sql);
         $items = $this->models->get_item('-a', 'digital');
         $spreadsheet = $this->models->reader("./Report/drycon.xlsx");
