@@ -37,7 +37,7 @@ class xcel {
             $kvah   = $dt->vah;
             $kvarh  = $dt->varh;
     
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 25200 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 21600 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
     
             $activeWorksheet->setCellValue('C'.$i, $watt);
             $activeWorksheet->setCellValue('D'.$i, $var);
@@ -79,7 +79,7 @@ class xcel {
             $flow = $dt->flow;
             $volume = $dt->volume;
 
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 25200 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 21600 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
 
             $activeWorksheet->setCellValue('C'.$i, $flow);
             $activeWorksheet->setCellValue('D'.$i, $volume);
@@ -109,7 +109,7 @@ class xcel {
                 }
             }
 
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 25200 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 21600 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
 
             $activeWorksheet->setCellValue('C'.$i, $temp);
             $activeWorksheet->setCellValue('D'.$i, $name);
@@ -145,7 +145,7 @@ class xcel {
                 }
             }
 
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 25200 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 21600 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
 
             $activeWorksheet->setCellValue('C'.$i, $status);
             $activeWorksheet->setCellValue('D'.$i, $name);
