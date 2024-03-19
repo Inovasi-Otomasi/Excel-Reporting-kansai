@@ -38,7 +38,7 @@ class xcel {
             $kvarh  = $dt->varh;
     
     
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 25200 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
     
             $activeWorksheet->setCellValue('C'.$i, $watt);
             $activeWorksheet->setCellValue('D'.$i, $var);
@@ -65,7 +65,6 @@ class xcel {
     
         $filename = $item .' Energy Report '. date("d M, Y (H-i)",$from) .' - '. date("d M, Y (H-i)", $to);
         $this->models->writer($spreadsheet, $filename);
-        var_dump($data[0]->ts); 
     }
 
     public function flow_meter($item = "", $from, $to){
@@ -81,7 +80,7 @@ class xcel {
             $flow = $dt->flow;
             $volume = $dt->volume;
 
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 25200 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
 
             $activeWorksheet->setCellValue('C'.$i, $flow);
             $activeWorksheet->setCellValue('D'.$i, $volume);
@@ -111,7 +110,7 @@ class xcel {
                 }
             }
 
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 25200 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
 
             $activeWorksheet->setCellValue('C'.$i, $temp);
             $activeWorksheet->setCellValue('D'.$i, $name);
@@ -147,7 +146,7 @@ class xcel {
                 }
             }
 
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 25200 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
 
             $activeWorksheet->setCellValue('C'.$i, $status);
             $activeWorksheet->setCellValue('D'.$i, $name);
