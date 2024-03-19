@@ -65,6 +65,7 @@ class xcel {
     
         $filename = $item .' Energy Report '. date("d M, Y (H-i)",$from) .' - '. date("d M, Y (H-i)", $to);
         $this->models->writer($spreadsheet, $filename);
+        var_dump($data[0]->ts);
     }
 
     public function flow_meter($item = "", $from, $to){
