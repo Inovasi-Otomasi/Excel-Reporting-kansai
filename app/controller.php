@@ -9,7 +9,7 @@ class xcel {
     
     public function power_meter($item = "", $from, $to){
         $item = $this->models->get_item($item)[0]->id;
-        $sql = "SELECT ts - INTERVAL 7 HOUR AS time, power.* FROM power WHERE item_id = $item AND ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 10000";
+        $sql = "SELECT * FROM power WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 10000";
         $data = $this->models->get_data($sql);
         $spreadsheet = $this->models->reader("./Report/pm.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('PLN');
@@ -37,7 +37,7 @@ class xcel {
             $kvah   = $dt->vah;
             $kvarh  = $dt->varh;
     
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->time + 21600 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 21600 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
     
             $activeWorksheet->setCellValue('C'.$i, $watt);
             $activeWorksheet->setCellValue('D'.$i, $var);
