@@ -5,8 +5,8 @@ date_default_timezone_set("Asia/Bangkok");
 
 $generate = new xcel;
 $item = isset($_GET['item']) ? $_GET['item'] : " ";
-$from = isset($_GET['from']) ? round($_GET['from']/1000,0) : time();
-$to = isset($_GET['to']) ? round($_GET['to']/1000,0) : time();
+$from = isset($_GET['from']) ? round($_GET['from']/1000,0) + 7 * 3600: time() - 86400;
+$to = isset($_GET['to']) ? round($_GET['to']/1000,0) + 7 * 3600: time();
 $parameter = isset($_GET['parameter']) ? $_GET['parameter'] : " ";
 
 switch ($parameter) {
