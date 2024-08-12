@@ -37,7 +37,7 @@ class xcel {
             $kvah   = $dt->vah;
             $kvarh  = $dt->varh;
     
-            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
+            $activeWorksheet->setCellValue('B'.$i, '=(((('. $dt->ts + 21600 .'/60)/60)+8)/24)+DATE(1970,1,1)'); //time
     
             $activeWorksheet->setCellValue('C'.$i, $watt);
             $activeWorksheet->setCellValue('D'.$i, $var);
