@@ -8,9 +8,11 @@ class xcel {
     }
     
     public function power_meter($item = "", $from, $to){
+        $it = $item;
         $item = $this->models->get_item($item)[0]->id;
         $sql = "SELECT * FROM power WHERE item_id = $item and ts BETWEEN FROM_UNIXTIME($from) AND FROM_UNIXTIME($to) LIMIT 10000";
         $data = $this->models->get_data($sql);
+
         $spreadsheet = $this->models->reader("./Report/pm.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('PLN');
 
@@ -62,7 +64,7 @@ class xcel {
             $i++;
         }
     
-        $filename = $item .' Energy Report '. date("d M, Y (H-i)",$from) .' - '. date("d M, Y (H-i)", $to);
+        $filename = $it .' Energy Report '. date("d M, Y (H-i)",$from) .' - '. date("d M, Y (H-i)", $to);
         $this->models->writer($spreadsheet, $filename);
     }
 
