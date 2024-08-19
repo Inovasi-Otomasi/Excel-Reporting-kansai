@@ -16,7 +16,7 @@ class xcel {
         $spreadsheet = $this->models->reader("./Report/pm.xlsx");
         $activeWorksheet = $spreadsheet->getSheetByName('PLN');
 
-        $i = 3;
+        $i = 3; 
 
         foreach($data as $dt){
             $i1 = $dt->i1;
